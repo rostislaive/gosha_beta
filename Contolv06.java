@@ -15,10 +15,7 @@ public class Controlv06 extends LinearOpMode {
   private DcMotor LRMotor;
   private DcMotor BRMotor;
   private Servo Servo1;
-  public int dioG = 20000;
-  public int dioS = 100;
-  
-  @Override
+   @Override
   public void runOpMode() {
 
     LFMotor = hardwareMap.get(DcMotor.class, "LFMotor");
@@ -30,7 +27,6 @@ public class Controlv06 extends LinearOpMode {
     Servo1 = hardwareMap.get(Servo.class, "Servo1");
     BRMotor = hardwareMap.get(DcMotor.class, "BRMotor");
     LBMotor.setDirection(DcMotor.Direction.REVERSE);
-    BRMotor.setDirection(DcMotor.Direction.REVERSE);
     waitForStart();
     if (opModeIsActive()) {
       while (opModeIsActive()) {
@@ -50,21 +46,16 @@ public class Controlv06 extends LinearOpMode {
         LFMotor.setPower(dirFL);
         RFMotor.setPower(dirFR);
         ARMotor.setPower(valAR);
-		if (valLR > 0){
-			LRMotor.setPower(valLR);
-		}
-		else{
-			BRMotor.setPower(valLR);
-		}
+	LRMotor.setPower(valLR);
+	BRMotor.setPower(valLR);
         telemetry.update();
         if ((gamepad2.a == true)){
 			  Servo1.setPosition(0.66);
 		    }
-		if ((gamepad2.b == true)){
+	if ((gamepad2.b == true)){
 			Servo1.setPosition(0);
 
 		    }
-        
       }
     }
   }
